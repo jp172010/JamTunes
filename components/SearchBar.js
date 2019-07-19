@@ -15,10 +15,9 @@ export default class Search extends Component {
 
         return (
             <SearchBar
-                // containerStyle={{ backgroundColor: 'white' }}
-                // inputStyle={{ backgroundColor: 'light grey' }}
                 platform='ios'
-                containerStyle={{backgroundColor: 'white'}}
+                containerStyle={{backgroundColor: '#008dff', borderBottomWidth: .5, borderBottomColor: 'grey'}}
+                inputContainerStyle={{backgroundColor: 'white'}}
                 placeholder="Search"
                 onChangeText={this.updateSearch}
                 value={search}

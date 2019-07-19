@@ -6,7 +6,7 @@ export default function SearchIcon(props) {
     return (
       <Ionicons 
       name={props.name} 
-      size={props.size} color="grey"
+      size={props.size}
       style={{ marginBottom: -3 }}
       color={props.focused ? Colors.tabIconSelected : Colors.tabIconDefault}
       />

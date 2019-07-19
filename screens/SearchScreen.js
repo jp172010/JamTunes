@@ -10,7 +10,7 @@ export default function SearchScreen() {
     <View>
       <Search />
       <View style={styles.welcomeContainer}>
-        <SearchIcon name="ios-search" size={150} color="black"/>
+        <SearchIcon name="ios-search" size={150} />
         <Text style={styles.setFontSizeOne}>Search JamTunes</Text>
         <Text style={styles.setFontSizeTwo}>Find artists, music, and audio</Text>
       </View>
@@ -20,12 +20,20 @@ export default function SearchScreen() {
 
 SearchScreen.navigationOptions = {
   title: 'Search',
+  headerStyle: {
+    borderBottomWidth: 0,
+    backgroundColor: '#008dff',
+  },
+  headerTitleStyle: {
+    color: 'white',
+    fontSize: 20,
+  }
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 15,
+
   },
   welcomeContainer: {
     alignItems: 'center',
