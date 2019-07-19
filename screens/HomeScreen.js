@@ -22,6 +22,14 @@ export default function HomeScreen() {
 
 HomeScreen.navigationOptions = {
   title: 'JamTunes',
+  headerStyle: {
+    borderBottomWidth: 0,
+    backgroundColor: '#008dff',
+  },
+  headerTitleStyle: {
+    color: 'white',
+    fontSize: 20,
+  }
 };
 
 
