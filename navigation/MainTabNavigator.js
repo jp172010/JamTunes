@@ -7,6 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import SearchScreen from '../screens/SearchScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import SearchIcon from '../components/SearchIcon';
+import HomeIcon from '../components/HomeIcon';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -23,13 +24,9 @@ const HomeStack = createStackNavigator(
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
+    <HomeIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+      name="home"
     />
   ),
 };
