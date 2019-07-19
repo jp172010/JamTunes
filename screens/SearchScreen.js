@@ -33,7 +33,7 @@ SearchScreen.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
+    backgroundColor: 'white',
   },
   welcomeContainer: {
     alignItems: 'center',
@@ -42,11 +42,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   setFontSizeOne: {
-    fontSize: 35,
-    fontWeight: "300", // Define font size here in Pixels
+    fontSize: 40,
+    fontWeight: "200", // Define font size here in Pixels
   },
   setFontSizeTwo: {
-    fontSize: 15,
+    fontSize: 18,
     marginTop: 5,
+    color: 'grey',
   },
 });
