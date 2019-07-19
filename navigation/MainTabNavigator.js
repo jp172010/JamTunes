@@ -6,7 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import SearchScreen from '../screens/SearchScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import IconExample from '../components/SearchIcon';
+import SearchIcon from '../components/SearchIcon';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -46,7 +46,7 @@ const SearchStack = createStackNavigator(
 SearchStack.navigationOptions = {
   tabBarLabel: 'Search',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <SearchIcon focused={focused} name="ios-search" size={26} />
   ),
 };
 

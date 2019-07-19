@@ -2,16 +2,15 @@ import React from 'react';
 import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import Search from '../components/SearchBar';
 import { Icon } from 'react-native-elements';
-import TabBarIcon from '../components/TabBarIcon';
-import IconExample from '../components/SearchIcon';
+import SearchIcon from '../components/SearchIcon';
 
 
 export default function SearchScreen() {
   return (
     <View>
-      <Search></Search>
+      <Search />
       <View style={styles.welcomeContainer}>
-        <IconExample></IconExample>
+        <SearchIcon name="ios-search" size={150} color="black"/>
         <Text style={styles.setFontSizeOne}>Search JamTunes</Text>
         <Text style={styles.setFontSizeTwo}>Find artists, music, and audio</Text>
       </View>
@@ -40,5 +39,6 @@ const styles = StyleSheet.create({
   },
   setFontSizeTwo: {
     fontSize: 15,
+    marginTop: 5,
   },
 });
