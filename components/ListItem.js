@@ -123,6 +123,7 @@ styles = StyleSheet.create({
         color: 'grey'
     },
     heartIcon: {
-        marginRight: 10
+        marginRight: 10,
+        color: 'grey'
     }
 })
