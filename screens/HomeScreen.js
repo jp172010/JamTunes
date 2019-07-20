@@ -10,18 +10,18 @@ import {
   View,
 } from 'react-native';
 
-import SongList from '../components/ListItem';
-import Search from '../components/SearchBar';
+// import SongList from '../components/ListItem';
+// import Search from '../components/SearchBar';
 
-export default function HomeScreen(props) {
+export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Search />
+      {/* <Search />
       <ScrollView >
         <View >
           <SongList />
         </View>
-      </ScrollView>
+      </ScrollView> */}
     </View>
   );
 }

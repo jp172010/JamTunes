@@ -4,85 +4,28 @@ import { ListItem, FlatList } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 
 
-
-
-const list = [
-    {
-        name: 'Eric Prydz',
-        avatar_url: 'https://cdn.shopify.com/s/files/1/0385/6229/files/b8fe22d2_large.jpg?v=1482620682',
-        subtitle: 'Purple Line',
-        song_length: '2:45',
-        test: 'test'
-
-    },
-    {
-        name: 'Chris Jackson',
-        avatar_url: 'https://edmidentity.com/wp-content/uploads/2017/12/Album-Cover-Art.jpg',
-        subtitle: 'Promise You',
-        song_length: '3:38',
-        test: 'test'
-    },
-    {
-        name: 'Eric Prydz',
-        avatar_url: 'https://cdn.shopify.com/s/files/1/0385/6229/files/b8fe22d2_large.jpg?v=1482620682',
-        subtitle: 'Purple Line',
-        song_length: '2:45',
-        test: 'test'
-
-    },
-    {
-        name: 'Chris Jackson',
-        avatar_url: 'https://edmidentity.com/wp-content/uploads/2017/12/Album-Cover-Art.jpg',
-        subtitle: 'Promise You',
-        song_length: '3:38',
-        test: 'test'
-    },
-    {
-        name: 'Eric Prydz',
-        avatar_url: 'https://cdn.shopify.com/s/files/1/0385/6229/files/b8fe22d2_large.jpg?v=1482620682',
-        subtitle: 'Purple Line',
-        song_length: '2:45',
-        test: 'test'
-
-    },
-    {
-        name: 'Chris Jackson',
-        avatar_url: 'https://edmidentity.com/wp-content/uploads/2017/12/Album-Cover-Art.jpg',
-        subtitle: 'Promise You',
-        song_length: '3:38',
-        test: 'test'
-    },
-    {
-        name: 'Eric Prydz',
-        avatar_url: 'https://cdn.shopify.com/s/files/1/0385/6229/files/b8fe22d2_large.jpg?v=1482620682',
-        subtitle: 'Purple Line',
-        song_length: '2:45',
-        test: 'test'
-
-    }
-]
-
 export default class SongList extends React.Component {
 
-    render() {
+    renderData() {
+        const { data, avatarKey, titleKey, subtitleKey, lengthKey } = this.props;
         return (
             <View>
                 {
-                    list.map((item, index) => (
+                    data.map((item, index) => (
                         <ListItem onPress={() => console.log("Works!")}
                             key={index}
                             leftAvatar={{
-                                source: { uri: item.avatar_url },
+                                source: { uri: item[avatarKey] },
                                 size: 'large',
                                 rounded: false,
                             }}
                             title={
-                                <Text style={styles.artistName}>{item.name}</Text>
+                                <Text style={styles.artistName}>{item[titleKey]}</Text>
                             }
                             subtitle={
                                 <View>
-                                    <Text style={styles.songName}>{item.subtitle}</Text>
-                                    <Text style={styles.songLength}>{item.song_length}</Text>
+                                    <Text style={styles.songName}>{item[subtitleKey]}</Text>
+                                    <Text style={styles.songLength}>{item[lengthKey]}</Text>
                                 </View>
                             }
                             rightTitle={
@@ -99,16 +42,14 @@ export default class SongList extends React.Component {
             </View>
         )
     }
+    render() {
+        return this.renderData();
+    }
 }
 
 
 
 styles = StyleSheet.create({
-    subtitleView: {
-        flexDirection: 'row',
-        paddingLeft: 10,
-        paddingTop: 5
-    },
     artistName: {
         fontSize: 14,
         marginBottom: 3,

@@ -4,18 +4,96 @@ import Search from '../components/SearchBar';
 import { Icon } from 'react-native-elements';
 import SearchIcon from '../components/SearchIcon';
 
+import SongList from '../components/ListItem';
 
-export default function SearchScreen() {
-  return (
-    <View>
-      <Search />
-      <View style={styles.welcomeContainer}>
-        <SearchIcon name="ios-search" size={150} />
-        <Text style={styles.setFontSizeOne}>Search JamTunes</Text>
-        <Text style={styles.setFontSizeTwo}>Find artists, music, and audio</Text>
+// import * as actions from '../actions/index';
+
+export default class SearchScreen extends React.Component {
+
+  constructor() {
+    super();
+  
+    this.state = {
+      list: [
+        {
+            name: 'Eric Prydz',
+            avatar_url: 'https://cdn.shopify.com/s/files/1/0385/6229/files/b8fe22d2_large.jpg?v=1482620682',
+            subtitle: 'Purple Line',
+            song_length: '2:45',
+            test: 'test'
+      
+        },
+        {
+            name: 'Chris Jackson',
+            avatar_url: 'https://edmidentity.com/wp-content/uploads/2017/12/Album-Cover-Art.jpg',
+            subtitle: 'Promise You',
+            song_length: '3:38',
+            test: 'test'
+        },
+        {
+            name: 'Eric Prydz',
+            avatar_url: 'https://cdn.shopify.com/s/files/1/0385/6229/files/b8fe22d2_large.jpg?v=1482620682',
+            subtitle: 'Purple Line',
+            song_length: '2:45',
+            test: 'test'
+      
+        },
+        {
+            name: 'Chris Jackson',
+            avatar_url: 'https://edmidentity.com/wp-content/uploads/2017/12/Album-Cover-Art.jpg',
+            subtitle: 'Promise You',
+            song_length: '3:38',
+            test: 'test'
+        },
+        {
+            name: 'Eric Prydz',
+            avatar_url: 'https://cdn.shopify.com/s/files/1/0385/6229/files/b8fe22d2_large.jpg?v=1482620682',
+            subtitle: 'Purple Line',
+            song_length: '2:45',
+            test: 'test'
+      
+        },
+        {
+            name: 'Chris Jackson',
+            avatar_url: 'https://edmidentity.com/wp-content/uploads/2017/12/Album-Cover-Art.jpg',
+            subtitle: 'Promise You',
+            song_length: '3:38',
+            test: 'test'
+        },
+        {
+            name: 'Eric Prydz',
+            avatar_url: 'https://cdn.shopify.com/s/files/1/0385/6229/files/b8fe22d2_large.jpg?v=1482620682',
+            subtitle: 'Purple Line',
+            song_length: '2:45',
+            test: 'test'
+      
+        }
+      ]
+    }
+  };
+
+
+  render() {
+    const { list } = this.state;
+    return (
+      <View>
+        <Search />
+        <ScrollView>
+          <View style={styles.container} >
+            {/* <SearchIcon name="ios-search" size={150} />
+          <Text style={styles.setFontSizeOne}>Search JamTunes</Text>
+          <Text style={styles.setFontSizeTwo}>Find artists, music, and audio</Text> */}
+            <SongList data={list}
+              avatarKey={'avatar_url'}
+              titleKey={'name'}
+              subtitleKey={'subtitle'}
+              lengthKey={'song_length'}
+            />
+          </View>
+        </ScrollView>
       </View>
-    </View>
-  );
+    );
+  }
 }
 
 SearchScreen.navigationOptions = {
@@ -33,7 +111,7 @@ SearchScreen.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#fff',
   },
   welcomeContainer: {
     alignItems: 'center',
