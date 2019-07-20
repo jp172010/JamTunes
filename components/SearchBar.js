@@ -4,7 +4,10 @@ import { SearchBar } from 'react-native-elements';
 export default class Search extends Component {
     state = {
         search: '',
+        resultsShown: false,
     };
+
+    showResults = () => this.setState({resultsShown: true})
 
     updateSearch = search => {
         this.setState({ search });
@@ -22,6 +25,7 @@ export default class Search extends Component {
                 placeholder="Search"
                 onChangeText={this.updateSearch}
                 value={search}
+                showResults={this.showResults}
             />
         );
     }
