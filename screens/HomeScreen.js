@@ -10,12 +10,18 @@ import {
   View,
 } from 'react-native';
 
-import { MonoText } from '../components/StyledText';
+import SongList from '../components/ListItem';
+import Search from '../components/SearchBar';
 
-export default function HomeScreen() {
+export default function HomeScreen(props) {
   return (
     <View style={styles.container}>
-
+      <Search />
+      <ScrollView >
+        <View >
+          <SongList />
+        </View>
+      </ScrollView>
     </View>
   );
 }
@@ -28,7 +34,8 @@ HomeScreen.navigationOptions = {
   },
   headerTitleStyle: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 35,
+    fontWeight: "300",
   }
 };
 
