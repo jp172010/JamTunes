@@ -18,6 +18,7 @@ export default class Search extends Component {
                 platform='ios'
                 containerStyle={{backgroundColor: '#008dff'}}
                 inputContainerStyle={{backgroundColor: 'white'}}
+                cancelButtonProps={{color: 'white'}}
                 placeholder="Search"
                 onChangeText={this.updateSearch}
                 value={search}
