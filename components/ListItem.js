@@ -21,11 +21,11 @@ export default class SongList extends React.Component {
                                 rounded: false,
                             }}
                             title={
-                                <Text style={styles.artistName}>{item[titleKey]}</Text>
+                                <Text numberOfLines={1} style={styles.artistName}>{item[titleKey]}</Text>
                             }
                             subtitle={
                                 <View>
-                                    <Text style={styles.songName}>{item[subtitleKey]}</Text>
+                                    <Text numberOfLines={1} style={styles.songName}>{item[subtitleKey]}</Text>
                                     <Text style={styles.songLength}>{item[lengthKey]}</Text>
                                 </View>
                             }
@@ -59,7 +59,9 @@ styles = StyleSheet.create({
     songName: {
         fontSize: 22,
         marginBottom: 4,
-        fontWeight: '300'
+        fontWeight: '300',
+        flexDirection: 'row',
+        flex: 1
     },
     songLength: {
         color: 'grey'

@@ -10,6 +10,5 @@ const axiosInstance = axios.create({
 
 export const searchTracks = async singerName => {
     const response = await axiosInstance.get(`search?q=${singerName}`);
-    let songInfo = [];
-    return response.data.data.map(({ title, preview, artist: { name: artist_name }, album: { cover_medium: cover_medium }, duration }) => [...songInfo, { title, preview, artist_name, duration, cover_medium }]);
+    return response.data.data.map(({ title, preview, artist: { name: artist_name }, album: { cover_medium: cover_medium }, duration }) => ({ title, preview, artist_name, duration, cover_medium }));
 }
