@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import SearchScreen from '../screens/SearchScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import PlaylistScreen from '../screens/PlaylistScreen';
 import SearchIcon from '../components/SearchIcon';
 import HomeIcon from '../components/HomeIcon';
 
@@ -17,6 +18,7 @@ const config = Platform.select({
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
+    Playlist: PlaylistScreen,
   },
   config
 );

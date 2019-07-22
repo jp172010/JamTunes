@@ -8,12 +8,8 @@ const axiosInstance = axios.create({
     headers: { 'X-RapidAPI-Key': API_KEY }
 });
 
-export const searchTracks = singerName => {
-    return axiosInstance.get(`search?q=${singerName}`).then(
-        (response) => {
-            const songInfo = [];
-            const songs = response.data.data.map(({ title, preview, artist: { name: artist_name }, album: { cover_medium: cover_medium }, duration }) => [...songInfo, { title, preview, artist_name, duration, cover_medium }]);
-            return songs;
-        }
-    )
+export const searchTracks = async singerName => {
+    const response = await axiosInstance.get(`search?q=${singerName}`);
+    let songInfo = [];
+    return response.data.data.map(({ title, preview, artist: { name: artist_name }, album: { cover_medium: cover_medium }, duration }) => [...songInfo, { title, preview, artist_name, duration, cover_medium }]);
 }

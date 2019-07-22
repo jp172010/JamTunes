@@ -8,6 +8,7 @@ export default class SongList extends React.Component {
 
     renderData() {
         const { data, avatarKey, titleKey, subtitleKey, lengthKey } = this.props;
+        // debugger;
         return (
             <View>
                 {
