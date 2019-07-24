@@ -12,7 +12,9 @@ export default class SearchScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      songInfo: []
+      songInfo: [],
+      resultsShown: false,
+      loader: false
     };
 
     this.searchSongs = this.searchSongs.bind(this);
@@ -23,25 +25,29 @@ export default class SearchScreen extends React.Component {
   // };
 
   searchSongs(artist) {
-    actions.searchTracks(artist).then((songInfo) => { this.setState({ songInfo }) })
+    resultsShown=true;
+    actions.searchTracks(artist).then((songInfo) => { this.setState({ songInfo, resultsShown }) })
   }
 
   render() {
-    const { songInfo } = this.state;
+    const { songInfo, resultsShown } = this.state;
     return (
       <View>
         <Search handleSubmit={this.searchSongs} />
         <ScrollView>
           <View style={styles.container} >
-            {/* <SearchIcon name="ios-search" size={150} />
-            <Text style={styles.setFontSizeOne}>Search JamTunes</Text>
-            <Text style={styles.setFontSizeTwo}>Find artists, music, and audio</Text> */}
-            <SongList data={songInfo}
-              avatarKey={'cover_medium'}
-              titleKey={'artist_name'}
-              subtitleKey={'title'}
-              lengthKey={'duration'}
-            />
+            {!resultsShown ?
+              <View style={styles.welcomeContainer}>
+                <SearchIcon name="ios-search" size={150} />
+                <Text style={styles.setFontSizeOne}>Search JamTunes</Text>
+                <Text style={styles.setFontSizeTwo}>Find artists, music, and audio</Text>
+              </View> :
+              <SongList data={songInfo}
+                avatarKey={'cover_medium'}
+                titleKey={'artist_name'}
+                subtitleKey={'title'}
+                lengthKey={'duration'}
+              />}
           </View>
         </ScrollView>
       </View>

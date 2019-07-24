@@ -6,13 +6,14 @@ export default class Search extends Component {
         super()
 
         this.state = {
-            search: ''
+            search: '',
+            resultsShown: false
         };
     }
 
-    // showResults = () => {
-    //     this.setState({ resultsShown: true })
-    // }
+    showResults = () => {
+        this.setState({ resultsShown: true })
+    }
 
     updateSearch = search => {
         this.setState({ search });
