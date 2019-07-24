@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import Search from '../components/SearchBar';
 import { Icon } from 'react-native-elements';
 import SearchIcon from '../components/SearchIcon';
+import Loader from '../components/ActivityIndicator';
 
 import * as actions from '../actions/index';
 import SongList from '../components/ListItem';
@@ -25,18 +26,18 @@ export default class SearchScreen extends React.Component {
   // };
 
   searchSongs(artist) {
-    resultsShown=true;
-    actions.searchTracks(artist).then((songInfo) => { this.setState({ songInfo, resultsShown }) })
+    this.setState({ loader: true, resultsShown: false });
+    actions.searchTracks(artist).then((songInfo) => { this.setState({ songInfo, resultsShown: true, loader: false }) })
   }
 
   render() {
-    const { songInfo, resultsShown } = this.state;
+    const { songInfo, resultsShown, loader } = this.state;
     return (
       <View>
         <Search handleSubmit={this.searchSongs} />
         <ScrollView>
           <View style={styles.container} >
-            {!resultsShown ?
+            {!resultsShown ? loader ? <Loader loader={loader} /> :
               <View style={styles.welcomeContainer}>
                 <SearchIcon name="ios-search" size={150} />
                 <Text style={styles.setFontSizeOne}>Search JamTunes</Text>
