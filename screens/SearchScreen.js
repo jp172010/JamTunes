@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View, Text, FlatList } from 'react-native';
+import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import Search from '../components/SearchBar';
 import { Icon } from 'react-native-elements';
 import SearchIcon from '../components/SearchIcon';
@@ -12,20 +12,25 @@ export default class SearchScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      songInfo: [],
+      songInfo: []
     };
+
+    this.searchSongs = this.searchSongs.bind(this);
   }
 
-  componentWillMount() {
-    actions.searchTracks('eminem').then((songInfo) => { this.setState({ songInfo }) })
-  };
+  // componentDidMount() {
+  //   actions.searchTracks('Red Hot Chili Peppers').then((songInfo) => { this.setState({ songInfo }) })
+  // };
 
+  searchSongs(artist) {
+    actions.searchTracks(artist).then((songInfo) => { this.setState({ songInfo }) })
+  }
 
   render() {
     const { songInfo } = this.state;
     return (
       <View>
-        <Search />
+        <Search handleSubmit={this.searchSongs} />
         <ScrollView>
           <View style={styles.container} >
             {/* <SearchIcon name="ios-search" size={150} />

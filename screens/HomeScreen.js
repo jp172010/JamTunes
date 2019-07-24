@@ -12,18 +12,18 @@ import {
 
 // import SongList from '../components/ListItem';
 // import Search from '../components/SearchBar';
-import PlaylistTile from '../components/PlaylistTile';
-// onPress={() => console.log("Works!")}
-// onPress={() => { props.navigation.navigate('Playlist') }}
+// import PlaylistTile from '../components/PlaylistTile';
+import SuperGrid from '../components/SuperGrid';
 
 
 export default function HomeScreen(props) {
   return (
     <ScrollView >
       <View style={styles.container}>
-        <PlaylistTile onPress={() => { props.navigation.navigate('Playlist') }}/>
+       <SuperGrid/>
+        {/* <PlaylistTile onPress={() => { props.navigation.navigate('Playlist') }}/>
         <PlaylistTile onPress={() => console.log("Works!")}/>
-        <PlaylistTile onPress={() => console.log("Works!")}/>
+        <PlaylistTile onPress={() => console.log("Works!")}/> */}
       </View>
     </ScrollView>
   );

@@ -14,12 +14,8 @@ export default class PlaylistTile extends React.Component {
                 caption="Circuits"
                 contentContainerStyle={{ height: 100 }}
                 featured={true}
-                containerStyle={{marginTop: 1}}
+                containerStyle={{ marginTop: 1 }}
             >
-                <View
-                    style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}
-                >
-                </View>
             </Tile>
         )
     }
