@@ -4,6 +4,8 @@ import Search from '../components/SearchBar';
 import { Icon } from 'react-native-elements';
 import SearchIcon from '../components/SearchIcon';
 import Loader from '../components/ActivityIndicator';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 import * as actions from '../actions/index';
 import SongList from '../components/ListItem';
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
   welcomeContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 150,
+    marginTop: hp('17%'),
     marginBottom: 20,
   },
   setFontSizeOne: {

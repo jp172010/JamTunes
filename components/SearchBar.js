@@ -6,8 +6,7 @@ export default class Search extends Component {
         super()
 
         this.state = {
-            search: '',
-            resultsShown: false
+            search: ''
         };
     }
 

@@ -20,7 +20,6 @@ const HomeStack = createStackNavigator(
     Home: HomeScreen,
     Playlist: PlaylistScreen,
   },
-  config
 );
 
 HomeStack.navigationOptions = {
