@@ -33,7 +33,6 @@ export default class SuperGrid extends Component {
                         <View>
                             <Text style={styles.songName} numberOfLines={1} >{item.name}</Text>
                             <Text style={styles.artistName}>This is an artist name</Text>
-
                         </View>
                     </View>
                 )}
@@ -49,7 +48,7 @@ const styles = StyleSheet.create({
     },
     itemContainer: {
         justifyContent: 'flex-end',
-        // borderRadius: 5,
+        borderRadius: 5,
         padding: 10,
         height: 200,
     },
@@ -71,5 +70,13 @@ const styles = StyleSheet.create({
     artistName: {
         fontSize: 12,
         color: 'grey'
+    },
+    test: {
+        borderBottomWidth: .5,
+        borderLeftWidth: .5,
+        borderRightWidth: .5
+    }, 
+    topHitContainer: {
+        borderColor: 'grey',
     }
 });

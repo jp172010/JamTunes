@@ -11,9 +11,6 @@ export default class Search extends Component {
         };
     }
 
-    showResults = () => {
-        this.setState({ resultsShown: true })
-    }
 
     updateSearch = search => {
         this.setState({ search });
@@ -21,8 +18,9 @@ export default class Search extends Component {
 
     render() {
         const { search } = this.state;
-        const { handleSubmit } = this.props
+        const { handleSubmit, clearResults} = this.props;
 
+        // console.log(this.state.resultsShown);
         return (
             <SearchBar
                 platform='ios'
@@ -32,6 +30,7 @@ export default class Search extends Component {
                 placeholder="Search"
                 onChangeText={this.updateSearch}
                 value={search}
+                onClear={clearResults}
                 onSubmitEditing={() => handleSubmit(search)}
             />
         );

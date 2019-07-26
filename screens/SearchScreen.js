@@ -21,20 +21,19 @@ export default class SearchScreen extends React.Component {
     this.searchSongs = this.searchSongs.bind(this);
   }
 
-  // componentDidMount() {
-  //   actions.searchTracks('Red Hot Chili Peppers').then((songInfo) => { this.setState({ songInfo }) })
-  // };
+  clearResults = () => this.setState({resultsShown: false});
 
   searchSongs(artist) {
     this.setState({ loader: true, resultsShown: false });
     actions.searchTracks(artist).then((songInfo) => { this.setState({ songInfo, resultsShown: true, loader: false }) })
   }
 
+
   render() {
     const { songInfo, resultsShown, loader } = this.state;
     return (
       <View>
-        <Search handleSubmit={this.searchSongs} />
+        <Search handleSubmit={this.searchSongs} clearResults={this.clearResults} />
         <ScrollView>
           <View style={styles.container} >
             {!resultsShown ? loader ? <Loader loader={loader} /> :
