@@ -1,55 +1,58 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import Search from '../components/SearchBar';
-import { Icon } from 'react-native-elements';
 import SearchIcon from '../components/SearchIcon';
 import Loader from '../components/ActivityIndicator';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-
-
-import * as actions from '../actions/index';
 import SongList from '../components/ListItem';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import * as actions from '../actions/index';
 
 export default class SearchScreen extends React.Component {
 
   constructor(props) {
-    super(props);
+    super(props)
+
     this.state = {
       songInfo: [],
       resultsShown: false,
-      loader: false
+      isLoading: false
     };
 
     this.searchSongs = this.searchSongs.bind(this);
   }
 
-  clearResults = () => this.setState({resultsShown: false});
+  clearResults = () => this.setState({ resultsShown: false });
+
 
   searchSongs(artist) {
-    this.setState({ loader: true, resultsShown: false });
-    actions.searchTracks(artist).then((songInfo) => { this.setState({ songInfo, resultsShown: true, loader: false }) })
+    this.setState({ isLoading: true, resultsShown: false });
+    actions.searchTracks(artist).then((songInfo) => { this.setState({ songInfo, resultsShown: true, isLoading: false }) })
   }
+  
 
 
   render() {
-    const { songInfo, resultsShown, loader } = this.state;
+    const { songInfo, resultsShown, isLoading } = this.state;
     return (
       <View>
         <Search handleSubmit={this.searchSongs} clearResults={this.clearResults} />
         <ScrollView>
           <View style={styles.container} >
-            {!resultsShown ? loader ? <Loader loader={loader} /> :
+            {!resultsShown ? isLoading ? <Loader loading={isLoading} /> :
+
               <View style={styles.welcomeContainer}>
                 <SearchIcon name="ios-search" size={150} />
                 <Text style={styles.setFontSizeOne}>Search JamTunes</Text>
                 <Text style={styles.setFontSizeTwo}>Find artists, music, and audio</Text>
               </View> :
+
               <SongList data={songInfo}
                 avatarKey={'cover_medium'}
                 titleKey={'artist_name'}
                 subtitleKey={'title'}
                 lengthKey={'duration'}
               />}
+
           </View>
         </ScrollView>
       </View>

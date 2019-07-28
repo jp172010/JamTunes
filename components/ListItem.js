@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
-
+// import SoundPlayer from 'react-native-sound-player';
 
 
 class Music extends Component {
+
 
     state = {
         favorite: false
@@ -16,10 +17,20 @@ class Music extends Component {
         console.log("It works!")
     }
 
+    playSong() {
+        try {
+            SoundPlayer.playUrl('https://www.youtube.com/watch?v=vvDogoFw4B8&list=RDvvDogoFw4B8&start_radio=1')
+        } catch (e) {
+            alert('Cannot play the file')
+            console.log('cannot play the song file', e)
+        }
+    }
+
+
     render() {
         const { item, avatarKey, titleKey, subtitleKey, lengthKey } = this.props;
 
-        return <ListItem onPress={() => console.log("Works!")}
+        return <ListItem onPress={() => this.playSong()}
             leftAvatar={{
                 source: { uri: item[avatarKey] },
                 size: 'large',
