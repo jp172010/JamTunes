@@ -23,13 +23,11 @@ export default class SearchScreen extends React.Component {
 
   clearResults = () => this.setState({ resultsShown: false });
 
-
   searchSongs(artist) {
     this.setState({ isLoading: true, resultsShown: false });
     actions.searchTracks(artist).then((songInfo) => { this.setState({ songInfo, resultsShown: true, isLoading: false }) })
   }
   
-
 
   render() {
     const { songInfo, resultsShown, isLoading } = this.state;
