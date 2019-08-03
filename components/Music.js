@@ -50,4 +50,4 @@ class Music extends Component {
 }
 
 
-export default connect(()=>({}), player.actions)(Music)
+export default connect(() => ({}), player.actions)(Music)

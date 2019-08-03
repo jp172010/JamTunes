@@ -2,12 +2,12 @@ import { createSlice } from 'redux-starter-kit';
 
 export const player = createSlice({
     slice: 'player',
-    initialState:{
+    initialState: {
         playing: true,
         file: null
     },
-    reducers:{
-        pause: state => { 
+    reducers: {
+        pause: state => {
             state.playing = false
         },
         continue: state => {
