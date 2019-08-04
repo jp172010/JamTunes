@@ -71,6 +71,7 @@ SearchStack.path = '';
 const ProfileStack = createStackNavigator(
   {
     Profile: ProfileScreen,
+    Settings: SettingsScreen,
   },
   config
 );
@@ -88,7 +89,6 @@ const tabNavigator = createBottomTabNavigator({
   HomeStack,
   SearchStack,
   ProfileStack,
-  // SettingsStack,
 });
 
 tabNavigator.path = '';

@@ -11,12 +11,16 @@ import {
     Button,
 } from 'react-native';
 import ProfileInfo from '../components/Badge';
+import Signup from '../components/Signup';
+import { Feather } from '@expo/vector-icons';
 
 
 export default function ProfileScreen(props) {
+
     return (
         <View style={styles.container}>
             <ProfileInfo />
+            <Signup />
             {/* <Button title={'Navigate to Album Screen'} onPress={() => {'It works!'}} /> */}
             {/* <View>
                 <Text style={styles.welcomeContainer}>Your favorite songs will appear here</Text>
@@ -26,7 +30,26 @@ export default function ProfileScreen(props) {
 }
 
 ProfileScreen.navigationOptions = {
-    title: "Profile"
+    title: "Profile",
+    headerStyle: {
+        borderBottomWidth: 0,
+        backgroundColor: '#008dff',
+    },
+    headerTitleStyle: {
+        color: 'white',
+        fontSize: 20,
+    },
+    headerRight: (
+        <Feather
+            onPress={() => alert('It works!')}
+            name='settings'
+            size={22}
+            color="#fff"
+            style={{
+                marginRight: 16,
+            }}
+        />
+    ),
 };
 
 const styles = StyleSheet.create({
