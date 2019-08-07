@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import firebase from 'firebase/app';
 import { Input, Button } from 'react-native-elements';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
@@ -59,7 +59,7 @@ export default class SignUpScreen extends React.Component {
                     title="Sign Up"
                     raised={true}
                     buttonStyle={{
-                        width: 315
+                        width: hp('34%')
                     }}
                     onPress={this.handleSignUp} />
                 <Button
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 50,
-        fontSize: 36,
+        fontSize: hp('4%'),
         fontWeight: '200'
     }
 })
