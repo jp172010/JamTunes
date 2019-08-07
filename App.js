@@ -7,7 +7,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { Provider } from 'react-redux';
 import Player from './components/Player';
 import store from './store';
-// import firebase from 'react-native-firebase';
 import AppNavigator from './navigation/AppNavigator';
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -21,6 +20,7 @@ const firebaseConfig = {
   messagingSenderId: "258995087036",
   appId: "1:258995087036:web:e14afc26b6b2c25e"
 };
+
 firebase.initializeApp(firebaseConfig);
 
 export default function App(props) {

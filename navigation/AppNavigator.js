@@ -21,14 +21,3 @@ export default createAppContainer(
     initialRouteName: 'AuthLoading',
   }
 );
-
-// export default createAppContainer(createSwitchNavigator(
-//   {
-//     AuthLoading: AuthLoadingScreen,
-//     App: AppStack,
-//     Auth: AuthStack,
-//   },
-//   {
-//     initialRouteName: 'AuthLoading',
-//   }
-// ));

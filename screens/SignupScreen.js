@@ -1,8 +1,9 @@
 
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
-// import firebase from 'react-native-firebase';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
 import firebase from 'firebase/app';
+import { Input, Button } from 'react-native-elements';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 export default class SignUpScreen extends React.Component {
     state = { email: '', password: '', errorMessage: null }
@@ -19,29 +20,51 @@ export default class SignUpScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Sign Up</Text>
+                <Text style={styles.branding}>Welcome to JamTunes</Text>
                 {this.state.errorMessage &&
                     <Text style={{ color: 'red' }}>
                         {this.state.errorMessage}
                     </Text>}
-                <TextInput
-                    placeholder="Email"
-                    autoCapitalize="none"
+                <Input
                     style={styles.textInput}
+                    label='Email'
+                    autoCapitalize="none"
                     onChangeText={email => this.setState({ email })}
                     value={this.state.email}
+                    labelStyle={{
+                        marginTop: hp('2%')
+                    }}
+                    containerStyle={{
+                        paddingLeft: hp('6%'),
+                        paddingRight: hp('6%')
+                    }}
                 />
-                <TextInput
-                    secureTextEntry
-                    placeholder="Password"
-                    autoCapitalize="none"
+                <Input
                     style={styles.textInput}
+                    secureTextEntry={true}
+                    label="Password"
+                    autoCapitalize="none"
                     onChangeText={password => this.setState({ password })}
                     value={this.state.password}
+                    labelStyle={{
+                        marginTop: hp('2%')
+                    }}
+                    containerStyle={{
+                        marginBottom: hp('2%'),
+                        paddingLeft: hp('6%'),
+                        paddingRight: hp('6%')
+                    }}
                 />
-                <Button title="Sign Up" onPress={this.handleSignUp} />
+                <Button
+                    title="Sign Up"
+                    raised={true}
+                    buttonStyle={{
+                        width: 315
+                    }}
+                    onPress={this.handleSignUp} />
                 <Button
                     title="Already have an account? Login"
+                    type='clear'
                     onPress={() => this.props.navigation.navigate('Login')}
                 />
             </View>
@@ -57,9 +80,16 @@ const styles = StyleSheet.create({
     },
     textInput: {
         height: 40,
-        width: '90%',
+        width: '80%',
         borderColor: 'gray',
         borderWidth: 1,
         marginTop: 8
+    },
+    branding: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 50,
+        fontSize: 36,
+        fontWeight: '200'
     }
 })
