@@ -9,6 +9,8 @@ import SettingsScreen from '../screens/SettingsScreen';
 import PlaylistScreen from '../screens/PlaylistScreen';
 import SearchIcon from '../components/SearchIcon';
 import HomeIcon from '../components/HomeIcon';
+import ProfileScreen from '../screens/ProfileScreen';
+import ProfileIcon from '../components/ProfileIcon';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -50,26 +52,43 @@ SearchStack.navigationOptions = {
 
 SearchStack.path = '';
 
-const SettingsStack = createStackNavigator(
+// const SettingsStack = createStackNavigator(
+//   {
+//     Settings: SettingsScreen,
+//   },
+//   config
+// );
+
+// SettingsStack.navigationOptions = {
+//   tabBarLabel: 'Settings',
+//   tabBarIcon: ({ focused }) => (
+//     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+//   ),
+// };
+
+// SettingsStack.path = '';
+
+const ProfileStack = createStackNavigator(
   {
+    Profile: ProfileScreen,
     Settings: SettingsScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+ProfileStack.navigationOptions = {
+  tabBarLabel: 'Profile',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <ProfileIcon focused={focused} name="person-outline" />
   ),
 };
 
-SettingsStack.path = '';
+ProfileStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   SearchStack,
-  SettingsStack,
+  ProfileStack,
 });
 
 tabNavigator.path = '';

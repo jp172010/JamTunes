@@ -23,12 +23,12 @@ export default class SuperGrid extends Component {
                 // spacing={20}
                 renderItem={({ item, index }) => (
                     <View>
-                        <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
-                            {/* <Image 
-                        style={{ width: 175, height: 175 }}
-                        source={{ uri: 'https://cdn.shopify.com/s/files/1/0385/6229/files/b8fe22d2_large.jpg?v=1482620682' }} /> */}
-                            {/* <Text numberOfLines={1} style={styles.itemName}>{item.name}</Text>
-                            <Text style={styles.itemCode}>{item.code}</Text> */}
+                        <View style={[styles.itemContainer]}>
+                            <Image
+                                style={{ width: 175, height: 175 }}
+                                source={{ uri: 'https://cdn.shopify.com/s/files/1/0385/6229/files/b8fe22d2_large.jpg?v=1482620682' }} />
+                            {/* <Text numberOfLines={1} style={styles.itemName}>{item.name}</Text> */}
+                            {/* <Text style={styles.itemCode}>{item.code}</Text> */}
                         </View>
                         <View>
                             <Text style={styles.songName} numberOfLines={1} >{item.name}</Text>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: .5,
         borderLeftWidth: .5,
         borderRightWidth: .5
-    }, 
+    },
     topHitContainer: {
         borderColor: 'grey',
     }

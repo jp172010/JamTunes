@@ -66,7 +66,8 @@ SearchScreen.navigationOptions = {
   },
   headerTitleStyle: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 35,
+    fontWeight: '300'
   }
 };
 
