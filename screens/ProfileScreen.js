@@ -20,7 +20,7 @@ export default function ProfileScreen(props) {
     return (
         <View style={styles.container}>
             <ProfileInfo />
-            <Signup />
+            {/* <Signup /> */}
             {/* <Button title={'Navigate to Album Screen'} onPress={() => {'It works!'}} /> */}
             {/* <View>
                 <Text style={styles.welcomeContainer}>Your favorite songs will appear here</Text>

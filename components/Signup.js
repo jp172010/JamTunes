@@ -3,7 +3,7 @@ import { Modal, Text, TouchableHighlight, View, Alert, StyleSheet, TextInput, Sa
 import { Input, Button } from 'react-native-elements';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-export default class Signup extends Component {
+export default class SignupScreen extends Component {
 
     setModalVisible(visible) {
         this.setState({ modalVisible: visible });
