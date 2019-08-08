@@ -8,9 +8,7 @@ import { player } from '../reducers/player';
 
 class Music extends Component {
 
-    // setModalVisible(visible) {
-    //     this.setState({ modalVisible: visible });
-    // }
+
 
     state = {
         favorite: false
@@ -18,10 +16,6 @@ class Music extends Component {
     }
 
     toggleFav = () => {
-        // if (true) {
-        //     return this.setModalVisible(true);
-        // }
-        // this.setModalVisible(true);
         this.setState({ favorite: !this.state.favorite });
         console.log("It works!")
     }
@@ -30,7 +24,6 @@ class Music extends Component {
     render() {
         const { item, avatarKey, titleKey, subtitleKey, lengthKey } = this.props;
         return (
-            // <Fragment>
             <ListItem onPress={() => this.props.play(item.preview)}
                 leftAvatar={{
                     source: { uri: item[avatarKey] },
@@ -56,8 +49,6 @@ class Music extends Component {
                 }
                 bottomDivider={true}
             />
-            //     {this.state.modalVisible && <Signup showModal={this.state.modalVisible}/> }
-            // </Fragment>
         )
     }
 }
