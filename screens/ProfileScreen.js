@@ -1,27 +1,31 @@
-import * as WebBrowser from 'expo-web-browser';
 import React, { Component } from 'react';
 import {
-    Image,
     Platform,
-    ScrollView,
     StyleSheet,
-    Text,
     TouchableOpacity,
     View,
-    Button,
 } from 'react-native';
 import ProfileInfo from '../components/Badge';
 import Signup from '../components/Signup';
-import { Feather } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import firebase from 'firebase/app';
 
 
 export default function ProfileScreen(props) {
+
+    signOutUser = async () => {
+        try {
+            await firebase.auth().signOut();
+            navigate('Auth');
+        } catch (e) {
+            console.log(e);
+        }
+    }
 
     return (
         <View style={styles.container}>
             <ProfileInfo />
             {/* <Signup /> */}
-            {/* <Button title={'Navigate to Album Screen'} onPress={() => {'It works!'}} /> */}
             {/* <View>
                 <Text style={styles.welcomeContainer}>Your favorite songs will appear here</Text>
             </View> */}
@@ -40,10 +44,10 @@ ProfileScreen.navigationOptions = {
         fontSize: 20,
     },
     headerRight: (
-        <Feather
-            onPress={() => alert('It works!')}
-            name='settings'
-            size={22}
+        <Ionicons
+            onPress={() => this.signOutUser()}
+            name='ios-log-out'
+            size={24}
             color="#fff"
             style={{
                 marginRight: 16,

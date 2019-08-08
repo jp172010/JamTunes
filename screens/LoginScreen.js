@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import firebase from 'firebase/app';
 import { Input, Button } from 'react-native-elements';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
@@ -60,7 +60,7 @@ export default class LoginScreen extends React.Component {
                     buttonStyle={{
                         width: hp('34%')
                     }}
-                    onPress={this.handleSignUp} />
+                    onPress={this.handleLogin} />
                 <Button
                     title="Back to Signup"
                     type='clear'
