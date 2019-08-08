@@ -5,20 +5,34 @@ import { Ionicons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import { player } from '../reducers/player';
 // import Signup from '../components/Signup';
+import firebase from 'firebase/app';
 
 class Music extends Component {
 
-
-
     state = {
         favorite: false
-        // modalVisible: false
     }
 
     toggleFav = () => {
         this.setState({ favorite: !this.state.favorite });
         console.log("It works!")
     }
+
+
+    authCheck = () => {
+
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                this.toggleFav();
+            } else {
+                this.props.navigation.navigate('Auth');
+            }
+        })
+    }
+
+    // firebase.auth().onAuthStateChanged(user => {
+    //     this.props.navigation.navigate(user ? 'Main' : 'Auth')
+    // })
 
 
     render() {
@@ -44,7 +58,7 @@ class Music extends Component {
                         color={this.state.favorite ? '#008dff' : 'grey'}
                         name={this.state.favorite ? 'ios-heart' : 'ios-heart-empty'}
                         size={24}
-                        onPress={() => this.toggleFav()}
+                        onPress={() => this.authCheck()}
                     />
                 }
                 bottomDivider={true}
