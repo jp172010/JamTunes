@@ -65,7 +65,7 @@ class Music extends Component {
                         color={this.state.favorite ? '#008dff' : 'grey'}
                         name={this.state.favorite ? 'ios-heart' : 'ios-heart-empty'}
                         size={24}
-                        onPress={() => this.authCheck()}
+                        onPress={() => this.toggleFav()}
                     />
                 }
                 bottomDivider={true}
