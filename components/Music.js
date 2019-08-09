@@ -9,9 +9,14 @@ import firebase from 'firebase/app';
 
 class Music extends Component {
 
-    state = {
-        favorite: false
+    constructor(props){
+        super(props)
+        this.state = {
+            favorite: false
+        }
+
     }
+    
 
     toggleFav = () => {
         this.setState({ favorite: !this.state.favorite });
@@ -19,16 +24,17 @@ class Music extends Component {
     }
 
 
-    authCheck = () => {
+    // authCheck = () => {
 
-        firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                this.toggleFav();
-            } else {
-                this.props.navigation.navigate('Auth');
-            }
-        })
-    }
+    //     firebase.auth().onAuthStateChanged(user => {
+    //         if (user) {
+    //             this.toggleFav();
+    //         } else {
+    //             this.props.navigation.navigate('Auth');
+    //             console.log(this)
+    //         }
+    //     })
+    // }
 
     // firebase.auth().onAuthStateChanged(user => {
     //     this.props.navigation.navigate(user ? 'Main' : 'Auth')
@@ -37,6 +43,7 @@ class Music extends Component {
 
     render() {
         const { item, avatarKey, titleKey, subtitleKey, lengthKey } = this.props;
+
         return (
             <ListItem onPress={() => this.props.play(item.preview)}
                 leftAvatar={{

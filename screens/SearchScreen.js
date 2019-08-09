@@ -46,8 +46,9 @@ export default class SearchScreen extends React.Component {
               <SongList data={songInfo}
                 avatarKey={'cover_medium'}
                 titleKey={'artist_name'}
-                subtitleKey={'title'}
+                subtitleKey={'title'}x
                 lengthKey={'duration'}
+                navigation={this.props.navigation}
               />}
 
           </View>

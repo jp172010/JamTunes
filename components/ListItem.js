@@ -13,6 +13,7 @@ export default class SongList extends Component {
                     {
                         data.map((item, index) => (
                             <Music
+                                navigation={this.props.navigation}
                                 item={item}
                                 key={index}
                                 avatarKey={avatarKey}
