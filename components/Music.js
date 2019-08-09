@@ -5,32 +5,46 @@ import { Ionicons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import { player } from '../reducers/player';
 // import Signup from '../components/Signup';
+import firebase from 'firebase/app';
 
 class Music extends Component {
 
-    // setModalVisible(visible) {
-    //     this.setState({ modalVisible: visible });
-    // }
+    constructor(props){
+        super(props)
+        this.state = {
+            favorite: false
+        }
 
-    state = {
-        favorite: false
-        // modalVisible: false
     }
+    
 
     toggleFav = () => {
-        // if (true) {
-        //     return this.setModalVisible(true);
-        // }
-        // this.setModalVisible(true);
         this.setState({ favorite: !this.state.favorite });
         console.log("It works!")
     }
 
 
+    // authCheck = () => {
+
+    //     firebase.auth().onAuthStateChanged(user => {
+    //         if (user) {
+    //             this.toggleFav();
+    //         } else {
+    //             this.props.navigation.navigate('Auth');
+    //             console.log(this)
+    //         }
+    //     })
+    // }
+
+    // firebase.auth().onAuthStateChanged(user => {
+    //     this.props.navigation.navigate(user ? 'Main' : 'Auth')
+    // })
+
+
     render() {
         const { item, avatarKey, titleKey, subtitleKey, lengthKey } = this.props;
+
         return (
-            // <Fragment>
             <ListItem onPress={() => this.props.play(item.preview)}
                 leftAvatar={{
                     source: { uri: item[avatarKey] },
@@ -56,8 +70,6 @@ class Music extends Component {
                 }
                 bottomDivider={true}
             />
-            //     {this.state.modalVisible && <Signup showModal={this.state.modalVisible}/> }
-            // </Fragment>
         )
     }
 }

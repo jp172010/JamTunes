@@ -34,7 +34,6 @@ export default class SearchScreen extends React.Component {
     return (
       <View>
         <Search handleSubmit={this.searchSongs} clearResults={this.clearResults} />
-        <ScrollView>
           <View style={styles.container} >
             {!resultsShown ? isLoading ? <Loader loading={isLoading} /> :
 
@@ -47,12 +46,12 @@ export default class SearchScreen extends React.Component {
               <SongList data={songInfo}
                 avatarKey={'cover_medium'}
                 titleKey={'artist_name'}
-                subtitleKey={'title'}
+                subtitleKey={'title'}x
                 lengthKey={'duration'}
+                navigation={this.props.navigation}
               />}
 
           </View>
-        </ScrollView>
       </View>
     );
   }
@@ -73,7 +72,6 @@ SearchScreen.navigationOptions = {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#fff',
   },
   welcomeContainer: {

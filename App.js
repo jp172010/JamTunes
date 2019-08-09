@@ -7,7 +7,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { Provider } from 'react-redux';
 import Player from './components/Player';
 import store from './store';
-// import firebase from 'react-native-firebase';
 import AppNavigator from './navigation/AppNavigator';
 import firebase from 'firebase/app';
 import 'firebase/auth';

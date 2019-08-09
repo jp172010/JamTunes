@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import Music from './Music';
 
 export default class SongList extends Component {
@@ -9,17 +9,20 @@ export default class SongList extends Component {
 
         return (
             <View>
-                {
-                    data.map((item, index) => (
-                        <Music
-                            item={item}
-                            key={index}
-                            avatarKey={avatarKey}
-                            titleKey={titleKey}
-                            subtitleKey={subtitleKey}
-                            lengthKey={lengthKey} />
-                    ))
-                }
+                <ScrollView>
+                    {
+                        data.map((item, index) => (
+                            <Music
+                                navigation={this.props.navigation}
+                                item={item}
+                                key={index}
+                                avatarKey={avatarKey}
+                                titleKey={titleKey}
+                                subtitleKey={subtitleKey}
+                                lengthKey={lengthKey} />
+                        ))
+                    }
+                </ScrollView>
             </View>
         )
     }
