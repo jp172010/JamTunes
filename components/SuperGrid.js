@@ -20,7 +20,7 @@ export default class SuperGrid extends Component {
                 style={styles.gridView}
                 // staticDimension={300}
                 // fixed
-                // spacing={20}
+                // spacing={10}
                 renderItem={({ item, index }) => (
                     <View>
                         <View style={[styles.itemContainer]}>

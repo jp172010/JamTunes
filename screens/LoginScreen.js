@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import firebase from 'firebase/app';
 import { Input, Button } from 'react-native-elements';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { getFb, destroyFb } from '../reducers/firebase';
 
 export default class LoginScreen extends React.Component {
     state = { email: '', password: '', errorMessage: null }
@@ -10,7 +11,7 @@ export default class LoginScreen extends React.Component {
     handleLogin = () => {
         const { email, password } = this.state
         firebase
-            .auth()
+            .auth(getFb())
             .signInWithEmailAndPassword(email, password)
             .then(() => this.props.navigation.navigate('Main'))
             .catch(error => this.setState({ errorMessage: error.message }))
