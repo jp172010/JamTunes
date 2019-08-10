@@ -5,18 +5,18 @@ import { Ionicons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import { player } from '../reducers/player';
 // import Signup from '../components/Signup';
-import firebase from 'firebase/app';
+import * as firebase from 'firebase'
+import { getFb } from '../reducers/firebase';
 
 class Music extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
             favorite: false
         }
-
     }
-    
+
 
     toggleFav = () => {
         this.setState({ favorite: !this.state.favorite });
@@ -24,17 +24,25 @@ class Music extends Component {
     }
 
 
-    // authCheck = () => {
+    storeSongInfo = (uid) => {
+        getFb().database().ref('likes/' + uid).push(this.props.item);
+        console.log(this.props.item)
+        this.props.item = '';
+    }
 
-    //     firebase.auth().onAuthStateChanged(user => {
-    //         if (user) {
-    //             this.toggleFav();
-    //         } else {
-    //             this.props.navigation.navigate('Auth');
-    //             console.log(this)
-    //         }
-    //     })
-    // }
+
+
+    authCheck = () => {
+        firebase.auth(getFb()).onAuthStateChanged(user => {
+            if (user) {
+                this.storeSongInfo(user.uid);
+                this.toggleFav();
+            } else {
+                this.props.navigation.navigate('Auth');
+            }
+        })
+    }
+
 
     // firebase.auth().onAuthStateChanged(user => {
     //     this.props.navigation.navigate(user ? 'Main' : 'Auth')
@@ -65,7 +73,7 @@ class Music extends Component {
                         color={this.state.favorite ? '#008dff' : 'grey'}
                         name={this.state.favorite ? 'ios-heart' : 'ios-heart-empty'}
                         size={24}
-                        onPress={() => this.toggleFav()}
+                        onPress={() => this.authCheck()}
                     />
                 }
                 bottomDivider={true}

@@ -8,22 +8,11 @@ import { Provider } from 'react-redux';
 import Player from './components/Player';
 import store from './store';
 import AppNavigator from './navigation/AppNavigator';
-import firebase from 'firebase/app';
-import 'firebase/auth';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyC8_3C1T8D3W71fxKXPj6QUQa1bjxomqCE",
-  authDomain: "jamtunes-e3127.firebaseapp.com",
-  databaseURL: "https://jamtunes-e3127.firebaseio.com",
-  projectId: "jamtunes-e3127",
-  storageBucket: "",
-  messagingSenderId: "258995087036",
-  appId: "1:258995087036:web:e14afc26b6b2c25e"
-};
-firebase.initializeApp(firebaseConfig);
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
+
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {
     return (

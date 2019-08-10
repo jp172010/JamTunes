@@ -9,14 +9,18 @@ import ProfileInfo from '../components/Badge';
 import { Ionicons } from '@expo/vector-icons';
 import firebase from 'firebase/app';
 import { ScrollView, Text } from 'react-native';
+import { getFb, destroyFb, firebase as fb } from '../reducers/firebase';
+import { connect } from 'react-redux';
 
-
-export default function ProfileScreen(props) {
+function ProfileScreen(props) {
 
     signOutUser = async () => {
-        try {
-            await firebase.auth().signOut();
-            navigate('Auth');
+        try {            
+            await firebase.auth(getFb()).signOut();
+            destroyFb(fb => {
+                props.logOut();
+            })            
+            
         } catch (e) {
             console.log(e);
         }
@@ -72,3 +76,6 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     }
 });
+
+
+export default connect(()=>({}), fb.actions)(ProfileScreen)
