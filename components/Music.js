@@ -27,9 +27,7 @@ class Music extends Component {
     storeSongInfo = (uid) => {
         getFb().database().ref('likes/' + uid).push(this.props.item);
         console.log(this.props.item)
-        this.props.item = '';
     }
-
 
 
     authCheck = () => {
@@ -42,11 +40,6 @@ class Music extends Component {
             }
         })
     }
-
-
-    // firebase.auth().onAuthStateChanged(user => {
-    //     this.props.navigation.navigate(user ? 'Main' : 'Auth')
-    // })
 
 
     render() {

@@ -31,6 +31,8 @@ export default class SearchScreen extends React.Component {
 
   render() {
     const { songInfo, resultsShown, isLoading } = this.state;
+
+
     return (
       <View>
         <Search handleSubmit={this.searchSongs} clearResults={this.clearResults} />
