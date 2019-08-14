@@ -1,19 +1,19 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 export default class SuperGrid extends Component {
     state = { titles: [] };
     componentDidMount() {
         fetch(
-          "https://api.deezer.com/chart/0/playlists"
+            "https://api.deezer.com/chart/0/playlists"
         )
-          .then(response => response.json())
-          .then(responsejson => {
-              console.log(responsejson);
-             this.setState({ titles: responsejson.data })
-          }).catch();
-      }
+            .then(response => response.json())
+            .then(responsejson => {
+                console.log(responsejson);
+                this.setState({ titles: responsejson.data })
+            }).catch();
+    }
     render() {
         const { titles } = this.state
         const items = [
@@ -23,7 +23,7 @@ export default class SuperGrid extends Component {
             { name: 'NEPHRITIS', code: '#27ae60' }, { name: 'BELIZE HOLE', code: '#2980b9' },
             { name: 'WISTERIA', code: '#8e44ad' }, { name: 'MIDNIGHT BLUE', code: '#2c3e50' },
         ];
-       
+
         return (
             <FlatGrid
                 itemDimension={130}
@@ -33,19 +33,19 @@ export default class SuperGrid extends Component {
                 // fixed
                 // spacing={20}
                 renderItem={({ item, index }) => (
-                    <View>
-                        <View style={[styles.itemContainer]}>
-                            <Image
-                                style={{ width: 175, height: 175 }}
-                                source={{ uri: item.picture_big }} />
-                            {/* <Text numberOfLines={1} style={styles.itemName}>{item.name}</Text> */}
-                            {/* <Text style={styles.itemCode}>{item.code}</Text> */}
-                        </View>
+                    <TouchableOpacity style={styles.buttoncontainer} onPress={() => this.props.navigate('Playlist')}>
                         <View>
-                            <Text style={styles.songName} numberOfLines={1} >{item.title}</Text>
-                            <Text style={styles.artistName} numberOfLines={1} >by {item.user.name}</Text>
+                            <View style={[styles.itemContainer]}>
+                                <Image
+                                    style={{ width: 180, height: 180 }}
+                                    source={{ uri: item.picture_big }} />
+                            </View>
+                            <View style={styles.playlistContainer}>
+                                <Text style={styles.songName} numberOfLines={1} >{item.title}</Text>
+                                <Text style={styles.artistName} numberOfLines={1} >by {item.user.name}</Text>
+                            </View>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 )}
             />
         );
@@ -61,6 +61,9 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         padding: 10,
         height: 200,
+    },
+    playlistContainer: {
+        marginLeft: 10
     },
     itemName: {
         fontSize: 16,
@@ -80,7 +83,7 @@ const styles = StyleSheet.create({
     artistName: {
         fontSize: 12,
         color: 'grey',
-        maxWidth:150
+        maxWidth: 150
     },
     test: {
         borderBottomWidth: .5,
