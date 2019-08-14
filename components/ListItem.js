@@ -6,12 +6,14 @@ export default class SongList extends Component {
 
     renderData() {
         const { data, avatarKey, titleKey, subtitleKey, lengthKey } = this.props;
-
+        console.log('here')
+        console.log(Array.isArray(data));
+        // console.log(data);
         return (
             <View>
                 <ScrollView>
                     {
-                        data.map((item, index) => (
+                        data && data.map && data.map((item, index) => (
                             <Music
                                 navigation={this.props.navigation}
                                 item={item}

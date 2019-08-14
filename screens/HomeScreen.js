@@ -20,7 +20,7 @@ export default function HomeScreen(props) {
   return (
     <ScrollView >
       <View style={styles.container}>
-       <SuperGrid/>
+       <SuperGrid navigate={props.navigation.navigate}/>
         {/* <PlaylistTile onPress={() => { props.navigation.navigate('Playlist') }}/>
         <PlaylistTile onPress={() => console.log("Works!")}/>
         <PlaylistTile onPress={() => console.log("Works!")}/> */}

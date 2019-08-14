@@ -1,39 +1,77 @@
 import React, { Component } from 'react';
-import {
-    Platform,
-    StyleSheet,
-    TouchableOpacity,
-    View,
-} from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import ProfileInfo from '../components/Badge';
 import { Ionicons } from '@expo/vector-icons';
 import firebase from 'firebase/app';
-import { ScrollView, Text } from 'react-native';
+import { Text } from 'react-native';
 import { getFb, destroyFb, firebase as fb } from '../reducers/firebase';
 import { connect } from 'react-redux';
+import SongList from '../components/ListItem';
 
-function ProfileScreen(props) {
+class ProfileScreen extends Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            savedSongs: [],
+        };
+
+        this.authCheck();
+    }
+
+
+    retrieveSongInfo = (uid) => {
+        getFb().database().ref('likes/' + uid).on('value', response => {
+            console.log('What is this')
+            console.log()
+            this.setState({ savedSongs: Object.values(response.toJSON()) })
+
+        })
+    }
+
+    authCheck = () => {
+        firebase.auth(getFb()).onAuthStateChanged(user => {
+            if (user) {
+                this.retrieveSongInfo(user.uid);
+            }
+        })
+    }
 
     signOutUser = async () => {
-        try {            
+        try {
             await firebase.auth(getFb()).signOut();
             destroyFb(fb => {
                 props.logOut();
-            })            
-            
+            })
         } catch (e) {
             console.log(e);
         }
     }
 
-    return (
-        <View style={styles.container}>
-            <ProfileInfo />
-            <View style={styles.welcomeContainer}>
-                <Text style={styles.welcomeText}>Your favorite songs will {"\n"} be stored here</Text>
+    render() {
+        const { savedSongs } = this.state;
+        // console.log(savedSongs)
+
+        console.log("I made it to render")
+        return (
+            <View style={styles.container}>
+                <ProfileInfo />
+                <ScrollView>
+                    <SongList data={savedSongs}
+                        avatarKey={'cover_medium'}
+                        titleKey={'artist_name'}
+                        subtitleKey={'title'}
+                        lengthKey={'duration'}
+                    />
+                </ScrollView>
+
+                {/* <View style={styleswelcomeContainer}>
+                    <Text style={styles.welcomeText}>Your favorite songs will {"\n"} be stored here</Text>
+                </View> */}
             </View>
-        </View>
-    );
+        );
+    }
 }
 
 ProfileScreen.navigationOptions = {
@@ -78,4 +116,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default connect(()=>({}), fb.actions)(ProfileScreen)
+export default connect(() => ({}), fb.actions)(ProfileScreen)
