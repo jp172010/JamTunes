@@ -14,7 +14,7 @@ class ProfileScreen extends Component {
         super(props)
 
         this.state = {
-            savedSongs: [],
+            savedSongs: []
         };
 
         this.authCheck();
@@ -23,10 +23,7 @@ class ProfileScreen extends Component {
 
     retrieveSongInfo = (uid) => {
         getFb().database().ref('likes/' + uid).on('value', response => {
-            console.log('What is this')
-            console.log()
             this.setState({ savedSongs: Object.values(response.toJSON()) })
-
         })
     }
 
@@ -51,12 +48,12 @@ class ProfileScreen extends Component {
 
     render() {
         const { savedSongs } = this.state;
-        // console.log(savedSongs)
 
         console.log("I made it to render")
         return (
             <View style={styles.container}>
                 <ProfileInfo />
+
                 <ScrollView>
                     <SongList data={savedSongs}
                         avatarKey={'cover_medium'}

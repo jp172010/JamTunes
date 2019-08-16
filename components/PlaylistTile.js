@@ -1,22 +1,29 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View, Text, Image } from 'react-native';
 import { Tile } from 'react-native-elements';
-import { Ionicons } from '@expo/vector-icons';
+import * as Icon from '@expo/vector-icons';
+import PlayIcon from '../components/PlayIcon';
+
 
 
 export default class PlaylistTile extends React.Component {
 
     render() {
+
+        const albumCover = this.props.data;
+        console.log(albumCover);
+
         return (
+
             <Tile
-                imageSrc={{ uri: 'https://cdn.shopify.com/s/files/1/0385/6229/files/b8fe22d2_large.jpg?v=1482620682' }}
-                title="Chill Electronics"
-                caption="Circuits"
+                imageSrc={{ uri: albumCover.picture_xl }}
                 contentContainerStyle={{ height: 100 }}
                 featured={true}
+                icon={{ name: 'account-box' }}
                 containerStyle={{ marginTop: 1 }}
             >
             </Tile>
+
         )
     }
 }

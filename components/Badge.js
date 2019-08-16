@@ -12,14 +12,14 @@ export default class ProfileInfo extends Component {
                 <Avatar
                     rounded
                     source={{
-                        uri: 'https://randomuser.me/api/portraits/men/41.jpg',
+                        uri: 'https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/24862301_10155863018634882_2864073962542103935_n.jpg?_nc_cat=106&_nc_oc=AQmMoTr49TcN3n9X-g2OwVXS5ixucBZa9ENVzR5JbJ9ClBXoOLhCs3hzEiBp04K8qoRecbwYZjbZu1_O-By0jZ3Y&_nc_ht=scontent-dfw5-1.xx&oh=5a2bd5c6f2b5ac6df47126404b5c4e0d&oe=5DDCCB02',
                     }}
                     size="xlarge"
                     onPress={() => console.log('Prompt Change Picture!')}
                     showEditButton={true}
                 />
                 <View style={styles.usernameContainer}>
-                    <Text style={styles.username}>@Jameson_C</Text>
+                    <Text style={styles.username}>@Ziggy</Text>
                 </View>
             </View>
         </View>

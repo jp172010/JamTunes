@@ -31,6 +31,7 @@ export default class SearchScreen extends React.Component {
 
   render() {
     const { songInfo, resultsShown, isLoading } = this.state;
+    // console.log(songInfo);
 
 
     return (
@@ -46,6 +47,7 @@ export default class SearchScreen extends React.Component {
               </View> :
 
               <SongList data={songInfo}
+              id={'song_id'}
                 avatarKey={'cover_medium'}
                 titleKey={'artist_name'}
                 subtitleKey={'title'}
