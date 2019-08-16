@@ -19,8 +19,8 @@ export default class PlaylistTile extends React.Component {
                 imageSrc={{ uri: albumCover.picture_xl }}
                 contentContainerStyle={{ height: 100 }}
                 featured={true}
-                icon={{ name: 'account-box' }}
-                containerStyle={{ marginTop: 1 }}
+                icon={{name: 'play', type: 'evilicon', size: 125, color: 'white'}}
+                containerStyle={{ shadowColor: '#000000' }}
             >
             </Tile>
 

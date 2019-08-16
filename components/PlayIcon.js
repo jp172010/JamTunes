@@ -1,13 +1,11 @@
 import React from 'react';
 import { EvilIcons } from '@expo/vector-icons';
 
-export default class PlayIcon extends React.Component {
-    render() {
+export default function PlayIcon(props) {
         return (
             <EvilIcons
-                name='play'
-                color='white'
+                name={props.name}
+                // color='white'
             />
         );
     }
-}
