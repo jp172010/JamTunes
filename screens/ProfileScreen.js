@@ -52,9 +52,9 @@ class ProfileScreen extends Component {
         console.log("I made it to render")
         return (
             <View style={styles.container}>
-                <ProfileInfo />
-
                 <ScrollView>
+                    <ProfileInfo />
+
                     <SongList data={savedSongs}
                         avatarKey={'cover_medium'}
                         titleKey={'artist_name'}

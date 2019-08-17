@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import Tile from '../components/PlaylistTile';
 import SongList from '../components/ListItem';
 
@@ -15,13 +15,15 @@ export default class PlaylistScreen extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Tile data={picture}/>
-                <SongList data={songInfo}
-                    avatarKey={'cover_medium'}
-                    titleKey={'artist_name'}
-                    subtitleKey={'title'}
-                    lengthKey={'duration'}
-                />
+                <ScrollView>
+                    <Tile data={picture} />
+                    <SongList data={songInfo}
+                        avatarKey={'cover_medium'}
+                        titleKey={'artist_name'}
+                        subtitleKey={'title'}
+                        lengthKey={'duration'}
+                    />
+                </ScrollView>
             </View>
         );
     }
