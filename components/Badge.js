@@ -10,6 +10,15 @@ export default class ProfileInfo extends Component {
             <View style={styles.avatarContainer}>
                 <Avatar
                     rounded
+                    containerStyle={{
+                        shadowColor: '#000000',
+                        shadowOffset: {
+                            width: 0,
+                            height: 3
+                        },
+                        shadowRadius: 20,
+                        shadowOpacity: .5
+                    }}
                     source={{
                         uri: 'https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/24862301_10155863018634882_2864073962542103935_n.jpg?_nc_cat=106&_nc_oc=AQmMoTr49TcN3n9X-g2OwVXS5ixucBZa9ENVzR5JbJ9ClBXoOLhCs3hzEiBp04K8qoRecbwYZjbZu1_O-By0jZ3Y&_nc_ht=scontent-dfw5-1.xx&oh=5a2bd5c6f2b5ac6df47126404b5c4e0d&oe=5DDCCB02',
                     }}
