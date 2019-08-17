@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { Avatar, Badge, Icon, withBadge, ListItem } from 'react-native-elements';
+import { Avatar } from 'react-native-elements';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-
 
 export default class ProfileInfo extends Component {
 
@@ -16,7 +15,7 @@ export default class ProfileInfo extends Component {
                     }}
                     size="xlarge"
                     onPress={() => console.log('Prompt Change Picture!')}
-                    showEditButton={true}
+                    showEditButton={false}
                 />
                 <View style={styles.usernameContainer}>
                     <Text style={styles.username}>@Ziggy</Text>
@@ -29,6 +28,7 @@ export default class ProfileInfo extends Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
+        marginBottom: 25,
     },
     avatarContainer: {
         alignItems: 'center',

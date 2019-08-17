@@ -1,22 +1,6 @@
 import { createSlice } from 'redux-starter-kit';
 import * as firebaseLibrary from 'firebase/app';
 
-// import 'firebase/auth';
-
-// let firebaseApp;
-
-// const makeFirebase = function(){
-
-//   firebaseApp = firebase.initializeApp(firebaseConfig, 'JamTunes');
-//   return firebaseApp
-// }
-
-// export function getFirebase(){
-//   return firebaseApp;
-// }
-
-
-
 const firebaseConfig = {
     apiKey: "AIzaSyC8_3C1T8D3W71fxKXPj6QUQa1bjxomqCE",
     authDomain: "jamtunes-e3127.firebaseapp.com",
@@ -26,7 +10,6 @@ const firebaseConfig = {
     messagingSenderId: "258995087036",
     appId: "1:258995087036:web:e14afc26b6b2c25e"
 };
-
 
 let fb = firebaseLibrary.initializeApp(firebaseConfig, 'JamTunes');
 

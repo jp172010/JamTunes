@@ -1,12 +1,7 @@
-import React from 'react';
-import { ScrollView, StyleSheet, View, Text, Image } from 'react-native';
+import React, {Component} from 'react';
 import { Tile } from 'react-native-elements';
-import * as Icon from '@expo/vector-icons';
-import PlayIcon from '../components/PlayIcon';
 
-
-
-export default class PlaylistTile extends React.Component {
+export default class PlaylistTile extends Component {
 
     render() {
 
@@ -14,7 +9,6 @@ export default class PlaylistTile extends React.Component {
         console.log(albumCover);
 
         return (
-
             <Tile
                 imageSrc={{ uri: albumCover.picture_xl }}
                 contentContainerStyle={{ height: 100 }}
@@ -23,7 +17,6 @@ export default class PlaylistTile extends React.Component {
                 containerStyle={{ shadowColor: '#000000' }}
             >
             </Tile>
-
         )
     }
 }

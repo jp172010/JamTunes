@@ -7,13 +7,7 @@ export default class SongList extends Component {
     renderData() {
         const { data, avatarKey, titleKey, subtitleKey, lengthKey } = this.props;
         console.log('Inside ListItem')
-        console.log(avatarKey);
-        console.log(titleKey);
-        console.log(subtitleKey);
-        console.log(lengthKey);
-        console.log("I'm below data")
-        // console.log(Array.isArray(data));
-        // console.log(data);
+
         return (
             <View>
                 <ScrollView>
@@ -37,8 +31,6 @@ export default class SongList extends Component {
         return this.renderData();
     }
 }
-
-
 
 styles = StyleSheet.create({
     artistName: {

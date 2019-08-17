@@ -10,7 +10,6 @@ export default class Search extends Component {
         };
     }
 
-
     updateSearch = search => {
         this.setState({ search });
     };
@@ -19,7 +18,6 @@ export default class Search extends Component {
         const { search } = this.state;
         const { handleSubmit, clearResults} = this.props;
 
-        // console.log(this.state.resultsShown);
         return (
             <SearchBar
                 platform='ios'

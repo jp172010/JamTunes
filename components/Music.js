@@ -4,7 +4,6 @@ import { ListItem } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import { player } from '../reducers/player';
-// import Signup from '../components/Signup';
 import * as firebase from 'firebase'
 import { getFb } from '../reducers/firebase';
 
@@ -17,7 +16,6 @@ class Music extends Component {
         }
     }
 
-
     toggleFav = () => {
         this.setState({ favorite: !this.state.favorite });
         console.log("It works!")
@@ -29,7 +27,6 @@ class Music extends Component {
         console.log(this.props.item)
     }
 
-
     authCheck = () => {
         firebase.auth(getFb()).onAuthStateChanged(user => {
             if (user) {
@@ -40,7 +37,6 @@ class Music extends Component {
             }
         })
     }
-
 
     render() {
         const { item, avatarKey, titleKey, subtitleKey, lengthKey } = this.props;
@@ -74,6 +70,5 @@ class Music extends Component {
         )
     }
 }
-
 
 export default connect(() => ({}), player.actions)(Music)
