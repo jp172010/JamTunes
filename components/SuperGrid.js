@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
@@ -34,7 +33,6 @@ export default class SuperGrid extends Component {
                         )
                             .then(response => response.json())
                             .then(responsejson => {
-                                //console.log(responsejson);
                                 this.props.navigate('Playlist', {responsejson, item})
                             }).catch();
                         }}>
@@ -55,10 +53,10 @@ export default class SuperGrid extends Component {
         );
     }
 }
+
 const styles = StyleSheet.create({
     gridView: {
         flex: 1,
-        marginTop: 3
     },
     itemContainer: {
         justifyContent: 'center',

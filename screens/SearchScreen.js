@@ -33,7 +33,6 @@ export default class SearchScreen extends React.Component {
     const { songInfo, resultsShown, isLoading } = this.state;
     // console.log(songInfo);
 
-
     return (
       <View>
         <Search handleSubmit={this.searchSongs} clearResults={this.clearResults} />
@@ -69,9 +68,8 @@ SearchScreen.navigationOptions = {
   },
   headerTitleStyle: {
     color: 'white',
-    fontSize: 35,
-    fontWeight: '300'
-  }
+    fontSize: 20,
+},
 };
 
 const styles = StyleSheet.create({
