@@ -1,15 +1,22 @@
 
+
 # JamTunes
+![Cover](./pics/cover.png)
+
 JamTunes lets you play the music you just have to hear, instantly.
 Jump in and explore over 56 million tracks (and counting), and discover artists and tracks you'll love with personalized recommendations from the JamTunes Editors.
+
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
+
 Now lets get started!
+
 - First clone the repo on your local computer:
 ```
 $ git clone https://github.com/JamesonC/JamTunes.git
 ```
 ### Prerequisites
+
 - Windows
 - VS Code
 - cmd or Bash
@@ -23,10 +30,13 @@ $ git clone https://github.com/JamesonC/JamTunes.git
 ### Installing
 Now that you have all your tools -->
 In your Command Line type
+
 ```
 $ npm install
 ```
+
 Let it finish up. Bare in mind that this is a brand new app on your system and it might take a few minutes to download and install all packages. If you see any error use <kbd>Ctrl</kbd>/<kbd>command</kbd> + <kbd>c</kbd> to exit out and run the command again.
+
 This command will install all dependices from package.json 
 ```json
 "dependencies": {
@@ -59,11 +69,29 @@ This command will install all dependices from package.json
 }
 ```
 ## Deployment
-Expo Projects.
+[Expo Projects](https://docs.expo.io/versions/latest/workflow/publishing/)
+
 ## Built With
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* Expo Cli
+* React Native
+* ReduxÏ
+* Firebase
+* React Native Development
+* Deezer API
+* Rapid API
+
+## How It WORKS
+1 - First, You Will be presented with a Homescreen:
+![homescreen](./pics/HomeScreen.png)
+2 - From here:
+* You can navigate and navigate to one of the top playlist of your choice. In this case we have seleced accoustic pop.
+![playlistScreen](./pics/PlaylistScreen.png)
+* Or You could navigate to search screen where you can search through that 50M or more songs that we talked about:
+![searchScreen1](./pics/SearchScreen1.png)
+![searchScreen2](./pics/SearchScreen2.png)
+3 - All songs that you like through your search or on top playlist will appear in this section, Profile Screen.
+![profileScreen](./pics/ProfileScreen.png)
+
 ## Contributing Standard
 Examples of behavior that contributes to creating a positive environment include:
 - Using welcoming and inclusive language
@@ -71,17 +99,21 @@ Examples of behavior that contributes to creating a positive environment include
 - Gracefully accepting constructive criticism
 - Focusing on what is best for the community
 - Showing empathy towards other community members
+
 ## Pull Request Process
 1. Ensure any install or build dependencies are removed before the end of the layer when doing a build.
 2. Update the README.md with details of changes to the interface, this includes new environment variables, exposed ports, useful file locations and container parameters.
 3. Increase the version numbers in any examples files and the README.md to the new version that this Pull Request would represent.
 4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
+
 ## Version
 1.0.0
+
 ## Authors
-* **Jameson Campbell** - [Contanct](https://jamesonc.github.io/)
-* **Faran Navazi** - [Contanct](https://farannavazi.github.io/)
-* **Jonathan Pratt** - [Contanct](https://github.com/PurpleBooth)
-* **Jason Arnold** - [Contanct](https://github.com/Jmarn94)
+* **Jameson Campbell** - [Contact](https://jamesonc.github.io/)
+* **Faran Navazi** - [Contact](https://farannavazi.github.io/)
+* **Jonathan Pratt** - [Contact](https://jp17portfolio.herokuapp.com/)
+* **Jason Arnold** - [Contact](https://github.com/Jmarn94)
+
 ## License
 [LICENSED BY MIT](http://learn.edx.org/partner-mit/?utm_source=bing&utm_medium=cpc&utm_campaign=bs-us-nonbrand-partner-mit&utm_term=mit%20course%20offerings&utm_content=name_b)

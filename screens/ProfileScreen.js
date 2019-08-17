@@ -18,6 +18,7 @@ class ProfileScreen extends Component {
         };
 
         this.authCheck();
+
     }
 
 
@@ -39,7 +40,7 @@ class ProfileScreen extends Component {
         try {
             await firebase.auth(getFb()).signOut();
             destroyFb(fb => {
-                props.logOut();
+                props.logOut(fb);
             })
         } catch (e) {
             console.log(e);
