@@ -22,10 +22,6 @@ $ git clone https://github.com/JamesonC/JamTunes.git
 - cmd or Bash
 - For emulator, You could use Expo app on your android or ios phone 
 - Or you could download Android Studio and use their in app built emulator
-- Mac OS
-- VS Code
-- cmd or Bash
-- For emulator, You could use Expo app on your android or ios phone 
 - Or Xcode on Mac OS
 ### Installing
 Now that you have all your tools -->
